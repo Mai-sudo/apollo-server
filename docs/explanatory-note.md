@@ -33,10 +33,10 @@ GraphQL надає повне і зрозумілий опис даних в т�
 <img src="https://i2.paste.pics/CAX6B.png" width="814" height="390" alt="Screenshot">
 
 Якщо ви запускаєте це за допомогою:
-<img src="https://i2.paste.pics/CAX83.png" width="450" height="57" alt="Screenshot">
+<img src="https://i2.paste.pics/CAX83.png" width="808" height="57" alt="Screenshot">
 
 Ви повинні побачити роздруковану відповідь GraphQL:
-<img src="https://i2.paste.pics/CAX8F.png" width="450" height="57" alt="Screenshot">
+<img src="https://i2.paste.pics/CAX8F.png" width="808" height="57" alt="Screenshot">
 
 Вітаємо! Ви щойно виконали запит GraphQL!
 
@@ -45,6 +45,6 @@ GraphQL надає повне і зрозумілий опис даних в т�
 ## Запуск Express GraphQL Server
 &#160;&#160;&#160;&#160;Найпростіший спосіб запустити сервер API GraphQL - використовувати Express GraphQL, популярний фреймворк веб-додатків для Node.js. Вам потрібно буде встановити дві додаткові залежності:
 
-<img src="https://i2.paste.pics/CAXAI.png" width="450" height="57" alt="Screenshot">
+<img src="https://i2.paste.pics/CAXAI.png" width="808" height="57" alt="Screenshot">
 
 
