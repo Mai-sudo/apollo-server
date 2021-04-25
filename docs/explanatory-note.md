@@ -24,7 +24,7 @@ GraphQL надає повне і зрозумілий опис даних в т�
 
 Щоб створити новий проект та встановити GraphQL.js у поточному каталозі:
 
-<img src="https://i2.paste.pics/CAX1N.png" width="808" height="62" alt="Screenshot">
+<img src="https://i2.paste.pics/CAXAI.png" width="930" height="51" alt="Screenshot">
 
 
 ## Написання коду 
