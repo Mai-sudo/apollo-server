@@ -24,3 +24,25 @@
 
 Виконайте таку команду, щоб встановити обидві залежності та зберегти їх у каталозі >node_modules вашого проекту:
 <img src="https://i2.paste.pics/e38465fdf5a6f34f729b3df9e6f42569.png" width="651" height="72" alt="Screenshot">
+
+<code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> ApolloServer<span class="token punctuation">,</span> gql <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'apollo-server'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// A schema is a collection of type definitions (hence "typeDefs")</span>
+<span class="token comment">// that together define the "shape" of queries that are executed against</span>
+<span class="token comment">// your data.</span>
+<span class="token keyword">const</span> typeDefs <span class="token operator">=</span> gql<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+
+  # This "Book" type defines the queryable fields for every book in our data source.
+  type Book {
+    title: String
+    author: String
+  }
+
+  # The "Query" type is special: it lists all of the available queries that
+  # clients can execute, along with the return type for each. In this
+  # case, the "books" query returns an array of zero or more Books (defined above).
+  type Query {
+    books: [Book]
+  }
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code>
