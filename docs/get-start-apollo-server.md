@@ -9,3 +9,9 @@
 ## Створимо новий проект
 
 1. В рекомендуємо вам створіть каталог для нового проекту і `cd` в нього:
+<img src="https://i2.paste.pics/00868d0181924edd6fff2000f900f5c2.png" width="631" height="83" alt="Screenshot">
+
+2. Ініціалізуйте новий проект Node.js за допомогою npm (або іншого вподобаного менеджера пакетів, наприклад Yarn):
+<img src="https://i2.paste.pics/4f13ddebe4ccab6519788e6ea7e8e626.png" width="635" height="67" alt="Screenshot">
+
+Тепер ваш каталог проекту містить файл >package.json.
