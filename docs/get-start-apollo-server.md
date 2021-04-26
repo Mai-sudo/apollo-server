@@ -37,7 +37,7 @@
 
 &#160;&#160;&#160;&#160;Відкрийте `index.js` у бажаному редакторі та вставте в нього наступне:
 
-<img src="https://i2.paste.pics/01b40fcda284b7dc9f226bb5571344a5.png" width="762" height="426" alt="Screenshot">
+> <img src="https://i2.paste.pics/01b40fcda284b7dc9f226bb5571344a5.png" width="762" height="426" alt="Screenshot">
 
 &#160;&#160;&#160;&#160;Цей фрагмент визначає просту, дійсну схему GraphQL. Клієнти зможуть виконати запит із назвою `books`, а наш сервер поверне масив із нуля або більше `books`.
 
