@@ -87,7 +87,7 @@
 
 &#160;&#160;&#160;&#160;Коли ваш сервер все ще працює, відвідайте веб-сторінку `http://localhost:4000`, щоб відкрити GraphQL Playground. (Сервер Apollo розміщує GraphQL Playground автоматично, коли ви запускаєте його в невиробничому середовищі.)
 
-<img src="https://www.apollographql.com/docs/apollo-server/d979d0a9c458aad3861ad0dba48da064/graphql-playground.png" width="900" height="450" alt="Screenshot">
+<img src="https://www.apollographql.com/docs/apollo-server/d979d0a9c458aad3861ad0dba48da064/graphql-playground.png" width="900" height="500" alt="Screenshot">
 
 Інтерфейс інтерфейсу GraphQL Playground включає:
 
