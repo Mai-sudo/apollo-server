@@ -15,6 +15,7 @@
 <img src="https://i2.paste.pics/4f13ddebe4ccab6519788e6ea7e8e626.png" width="635" height="67" alt="Screenshot">
 
 &#160;&#160;&#160;&#160;Тепер ваш каталог проекту містить файл `package.json`.
+
 ## Встановити залежності
 
 Програми, які запускають >Apollo Server, потребують двох залежностей верхнього рівня:
@@ -22,27 +23,24 @@
 - `apollo-server` - це основна бібліотека самого Apollo Server, яка допомагає визначити форму ваших даних та спосіб їх отримання.
 - `graphql` - це бібліотека, яка використовується для побудови схеми GraphQL та виконання запитів до неї.
 
-Виконайте таку команду, щоб встановити обидві залежності та зберегти їх у каталозі >node_modules вашого проекту:
+&#160;&#160;&#160;&#160;Виконайте таку команду, щоб встановити обидві залежності та зберегти їх у каталозі >node_modules вашого проекту:
 <img src="https://i2.paste.pics/e38465fdf5a6f34f729b3df9e6f42569.png" width="651" height="72" alt="Screenshot">
 
-<code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> ApolloServer<span class="token punctuation">,</span> gql <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'apollo-server'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+&#160;&#160;&#160;&#160;Також створіть порожній файл `index.js` у кореневому каталозі вашого проекту:
+<img src="https://i2.paste.pics/8ab5596df1243a88859b4b6c5c71ed42.png" width="653" height="64" alt="Screenshot">
 
-<span class="token comment">// A schema is a collection of type definitions (hence "typeDefs")</span>
-<span class="token comment">// that together define the "shape" of queries that are executed against</span>
-<span class="token comment">// your data.</span>
-<span class="token keyword">const</span> typeDefs <span class="token operator">=</span> gql<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+&#160;&#160;&#160;&#160;Щоб все було простіше, `index.js` міститиме весь код для цього прикладу програми.
 
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
+## Визначимо свою схему GraphQL
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code>
+&#160;&#160;&#160;&#160;Кожен сервер GraphQL (включаючи Apollo Server) використовує схему **schema** для визначення структури даних, які клієнти можуть запитувати. У цьому прикладі ми створимо сервер для запиту колекції книг за назвою та автором.
+
+&#160;&#160;&#160;&#160;Відкрийте `index.js` у бажаному редакторі та вставте в нього наступне:
+
+<img src="https://i2.paste.pics/01b40fcda284b7dc9f226bb5571344a5.png" width="762" height="426" alt="Screenshot">
+
+&#160;&#160;&#160;&#160;Цей фрагмент визначає просту, дійсну схему GraphQL. Клієнти зможуть виконати запит із назвою `books`, а наш сервер поверне масив із нуля або більше `books`.
+
+## Визначимо свій набір даних
+
+епер, коли ми визначили структуру наших даних, ми можемо визначити самі дані. Apollo Server може отримувати дані з будь-якого джерела, до якого ви підключаєтесь (включаючи базу даних, REST API, послугу зберігання статичних об’єктів або навіть інший сервер GraphQL). Для цілей цього підручника ми просто приведемо деякі приклади даних.
