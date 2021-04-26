@@ -59,7 +59,7 @@
 
 Додайте внизу `index.js` наступне:
 
-<img src="https://i2.paste.pics/037544c83715cb41e19d4e597152e4a8.png" width="669" height="192" alt="Screenshot">
+> <img src="https://i2.paste.pics/037544c83715cb41e19d4e597152e4a8.png" width="669" height="192" alt="Screenshot">
 
 ## Створимо екземпляр `ApolloServer`
 
@@ -67,7 +67,7 @@
 
 Додайте внизу 'index.js' наступне:
 
-<img src="https://i2.paste.pics/820efdd0adbfe89f775e8da0795260d0.png" width="606" height="177" alt="Screenshot">
+> <img src="https://i2.paste.pics/820efdd0adbfe89f775e8da0795260d0.png" width="606" height="177" alt="Screenshot">
 
 ## Запустіть сервер
 
@@ -102,4 +102,4 @@
 
 &#160;&#160;&#160;&#160;Вставте цей рядок у ліву область тексту та натисніть кнопку Відтворити. Результати (з нашого твердокодованого набору даних) з’являються праворуч:
 
-<img src="https://www.apollographql.com/docs/apollo-server/d4e78b6ac058ff46317e52c4e6ea985d/graphql-playground-response.png" width="650" height="216" alt="Screenshot">
+<img src="https://www.apollographql.com/docs/apollo-server/d4e78b6ac058ff46317e52c4e6ea985d/graphql-playground-response.png" width="900" height="450" alt="Screenshot">
