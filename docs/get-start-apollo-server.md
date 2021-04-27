@@ -157,12 +157,12 @@ node index.js
 
 Ось рядок запиту GraphQL **query string** для виконання запиту `books`:
 
-```json
+```js
 1 {
-2   books {
-3     title
-4     author
-5   }
+2  books {
+3    title
+4    author
+5  }
 6 }
 ```
 
