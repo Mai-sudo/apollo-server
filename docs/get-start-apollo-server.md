@@ -9,10 +9,10 @@
 ## Створимо новий проект
 
 1. В рекомендуємо вам створіть каталог для нового проекту і `cd` в нього:
-|```                            |
-|1 mkdir graphql-server-example |
-|2 cd graphql-server-example    |
-|```                            |
+```                            
+1 mkdir graphql-server-example 
+2 cd graphql-server-example    
+```                            
 
 2. Ініціалізуйте новий проект Node.js за допомогою npm (або іншого вподобаного менеджера пакетів, наприклад Yarn):
 ```
@@ -157,7 +157,14 @@ node index.js
 
 Ось рядок запиту GraphQL **query string** для виконання запиту `books`:
 
-<img src="https://i2.paste.pics/09a04f86fc8bed784de0be08167c8655.png" width="650" height="216" alt="Screenshot">
+```json
+1 {
+2   books {
+3     title
+4     author
+5   }
+6 }
+```
 
 &#160;&#160;&#160;&#160;Вставте цей рядок у ліву область тексту та натисніть кнопку Відтворити. Результати (з нашого твердокодованого набору даних) з’являються праворуч:
 
