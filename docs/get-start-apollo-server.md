@@ -48,14 +48,14 @@
 Відкрийте `index.js` у бажаному редакторі та вставте в нього наступне:
 
 ```js
-1  const { ApolloServer, gql } = require('apollo-server');
-2  
-3  // A schema is a collection of type definitions (hence "typeDefs")
-4  // that together define the "shape" of queries that are executed against
-5  // your data.
-6  const typeDefs = gql`
+1 const { ApolloServer, gql } = require('apollo-server');
+2 
+3 // A schema is a collection of type definitions (hence "typeDefs")
+4 // that together define the "shape" of queries that are executed against
+5 // your data.
+6 const typeDefs = gql`
 7    # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-8
+8 
 9    # This "Book" type defines the queryable fields for every book in our data source.
 10   type Book {
 11     title: String
