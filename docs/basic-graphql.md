@@ -39,8 +39,8 @@ GraphQL надає повне і зрозумілий опис даних в т�
 2  
 3 // Construct a schema, using GraphQL schema language
 4 var schema = buildSchema(`
-5   type Query {
-6     hello: String
+5  type Query {
+6    hello: String
 7   }
 8 `);
 9  
@@ -83,8 +83,8 @@ GraphQL надає повне і зрозумілий опис даних в т�
 4 
 5  // Construct a schema, using GraphQL schema language
 6  var schema = buildSchema(`
-7    type Query {
-8      hello: String
+7   type Query {
+8     hello: String
 9    }
 10 `);
 11
