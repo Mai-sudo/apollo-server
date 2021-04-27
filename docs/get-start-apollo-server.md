@@ -54,21 +54,21 @@
 4 // that together define the "shape" of queries that are executed against
 5 // your data.
 6 const typeDefs = gql`
-7    # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+7   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 8 
-9    # This "Book" type defines the queryable fields for every book in our data source.
-10   type Book {
-11     title: String
-12     author: String
-13   }
+9   # This "Book" type defines the queryable fields for every book in our data source.
+10  type Book {
+11    title: String
+12    author: String
+13  }
 14
-15   # The "Query" type is special: it lists all of the available queries that
-16   # clients can execute, along with the return type for each. In this
-17   # case, the "books" query returns an array of zero or more Books (defined above).
-18   type Query {
-19     books: [Book]
-20   }
-21 `;
+15  # The "Query" type is special: it lists all of the available queries that
+16  # clients can execute, along with the return type for each. In this
+17  # case, the "books" query returns an array of zero or more Books (defined above).
+18  type Query {
+19    books: [Book]
+20  }
+21`;
 ```
 
 &#160;&#160;&#160;&#160;Цей фрагмент визначає просту, дійсну схему GraphQL. Клієнти зможуть виконати запит із назвою `books`, а наш сервер поверне масив із нуля або більше `books`.
