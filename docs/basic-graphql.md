@@ -61,9 +61,9 @@ graphql(schema, '{ hello }', root).then((response) => {
 >node server.js
 
 Ви повинні побачити роздруковану відповідь GraphQL:
->```js
->```{ data: { hello: 'Hello world!' } }
->```
+```js
+```{ data: { hello: 'Hello world!' } }
+```
 
 Вітаємо! Ви щойно виконали запит GraphQL!
 
@@ -72,16 +72,43 @@ graphql(schema, '{ hello }', root).then((response) => {
 ## Запуск Express GraphQL Server
 &#160;&#160;&#160;&#160;Найпростіший спосіб запустити сервер API GraphQL - використовувати Express GraphQL, популярний фреймворк веб-додатків для Node.js. Вам потрібно буде встановити дві додаткові залежності:
 
-<img src="https://i2.paste.pics/CAXAI.png" width="927" height="57" alt="Screenshot">
+>npm install express express-graphql graphql --save
 
 &#160;&#160;&#160;&#160;Давайте модифікуємо наш приклад «привіт світ» таким чином, щоб це був сервер API, а не сценарій, який запускає один запит. Ми можемо використовувати модуль 'express' для запуску веб-сервера, і замість того, щоб виконувати запит безпосередньо за допомогою функції `graphql`, ми можемо використовувати бібліотеку `express-graphql` для монтування сервера API GraphQL на кінцевій точці “/graphql” HTTP endpoint:
 
-<img src="https://i2.paste.pics/2a8a0adc480e8a85b46cd2b3b5b3061a.png" width="814" height="390" alt="Screenshot">
+```js
+var express = require('express');
+var { graphqlHTTP } = require('express-graphql');
+var { buildSchema } = require('graphql');
+ 
+// Construct a schema, using GraphQL schema language
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+ 
+// The root provides a resolver function for each API endpoint
+var root = {
+  hello: () => {
+    return 'Hello world!';
+  },
+};
+ 
+var app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000);
+console.log('Running a GraphQL API server at `http://localhost:4000/graphql`');
+```
 
 Ви можете запустити цей сервер GraphQL за допомогою:
-<img src="https://i2.paste.pics/71395808d28601d3d12ded5a8136582d.png" width="812" height="48" alt="Screenshot">
+>node server.js
 
-&#160;&#160;&#160;&#160;Оскільки ми налаштували **graphqlHTTP** за допомогою **graphiql: true**, ви можете використовувати інструмент GraphiQL для видачі запитів GraphQL вручну. Якщо ви переходите у веб-браузері до **http: //localhost:4000/graphql**, ви побачите інтерфейс, що дозволяє вводити запити. Це повинно виглядати так:
+&#160;&#160;&#160;&#160;Оскільки ми налаштували **graphqlHTTP** за допомогою **graphiql: true**, ви можете використовувати інструмент GraphiQL для видачі запитів GraphQL вручну. Якщо ви переходите у веб-браузері до `http://localhost:4000/graphql`, ви побачите інтерфейс, що дозволяє вводити запити. Це повинно виглядати так:
 
 <img src="https://i2.paste.pics/cf62de69ab84a8efea01aee00db6ff2d.png" width="810" height="448" alt="Screenshot">
 
