@@ -9,14 +9,14 @@
 ## Створимо новий проект
 
 1. В рекомендуємо вам створіть каталог для нового проекту і `cd` в нього:
-```js
-mkdir graphql-server-example
-cd graphql-server-example
+```
+1. mkdir graphql-server-example
+2. cd graphql-server-example
 ```
 
 2. Ініціалізуйте новий проект Node.js за допомогою npm (або іншого вподобаного менеджера пакетів, наприклад Yarn):
 ```
-npm init --yes
+1. npm init --yes
 ```
 
 &#160;&#160;&#160;&#160;Тепер ваш каталог проекту містить файл `package.json`.
@@ -29,12 +29,13 @@ npm init --yes
 - `graphql` - це бібліотека, яка використовується для побудови схеми GraphQL та виконання запитів до неї.
 
 &#160;&#160;&#160;&#160;Виконайте таку команду, щоб встановити обидві залежності та зберегти їх у каталозі >node_modules вашого проекту:
-<img src="https://i2.paste.pics/e38465fdf5a6f34f729b3df9e6f42569.png" width="651" height="72" alt="Screenshot">
 ```
-mkdir tratata
+1. npm install apollo-server graphql
 ```
 &#160;&#160;&#160;&#160;Також створіть порожній файл `index.js` у кореневому каталозі вашого проекту:
-<img src="https://i2.paste.pics/8ab5596df1243a88859b4b6c5c71ed42.png" width="653" height="64" alt="Screenshot">
+```
+1. touch index.js
+```
 
 &#160;&#160;&#160;&#160;Щоб все було простіше, `index.js` міститиме весь код для цього прикладу програми.
 
@@ -54,7 +55,29 @@ mkdir tratata
 
 Додайте наступне внизу `index.js`
 
-<img src="https://i2.paste.pics/a41d5e0d28c56d11318cb424cfffae78.png" width="650" height="300" alt="Screenshot">
+```js
+const { ApolloServer, gql } = require('apollo-server');
+
+// A schema is a collection of type definitions (hence "typeDefs")
+// that together define the "shape" of queries that are executed against
+// your data.
+const typeDefs = gql`
+  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+
+  # This "Book" type defines the queryable fields for every book in our data source.
+  type Book {
+    title: String
+    author: String
+  }
+
+  # The "Query" type is special: it lists all of the available queries that
+  # clients can execute, along with the return type for each. In this
+  # case, the "books" query returns an array of zero or more Books (defined above).
+  type Query {
+    books: [Book]
+  }
+`;
+```
 
 &#160;&#160;&#160;&#160;Цей фрагмент визначає простий набір даних, який клієнти можуть запитувати. Зверніть увагу, що два об’єкти в масиві відповідають структурі типу `Book`, яку ми визначили у нашій схемі.
 
