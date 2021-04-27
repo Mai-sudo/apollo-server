@@ -28,13 +28,34 @@ GraphQL надає повне і зрозумілий опис даних в т�
 
 Щоб створити новий проект та встановити GraphQL.js у поточному каталозі:
 
-<img src="https://i2.paste.pics/CAX0X.png" width="287" height="51" alt="Screenshot">
-
+>npm init
+>npm install graphql --save
 
 ## Написання коду 
 &#160;&#160;&#160;&#160;Для обробки запитів GraphQL нам потрібна схема, яка визначає тип `Query`, і нам потрібен корінь API з функцією, яка називається “resolve” для кожної кінцевої точки API. Для API, який просто повертає “Hello world!”, Ми можемо помістити цей код у файл з іменем `server.js`:
 
-<img src="https://i2.paste.pics/CAX6B.png" width="814" height="390" alt="Screenshot">
+```js
+>var { graphql, buildSchema } = require('graphql');
+> 
+>// Construct a schema, using GraphQL schema language
+>var schema = buildSchema(`
+>  type Query {
+>    hello: String
+>  }
+>`);
+> 
+>// The root provides a resolver function for each API endpoint
+>var root = {
+>  hello: () => {
+>    return 'Hello world!';
+>  },
+>};
+> 
+>// Run the GraphQL query '{ hello }' and print out the response
+>graphql(schema, '{ hello }', root).then((response) => {
+>  console.log(response);
+>});
+```
 
 Якщо ви запускаєте це за допомогою:
 <img src="https://i2.paste.pics/CAX83.png" width="927" height="57" alt="Screenshot">
