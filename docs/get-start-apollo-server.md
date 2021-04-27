@@ -9,10 +9,10 @@
 ## Створимо новий проект
 
 1. В рекомендуємо вам створіть каталог для нового проекту і `cd` в нього:
-```
-1 mkdir graphql-server-example
-2 cd graphql-server-example
-```
+> ```
+> 1 mkdir graphql-server-example
+> 2 cd graphql-server-example
+> ```
 
 2. Ініціалізуйте новий проект Node.js за допомогою npm (або іншого вподобаного менеджера пакетів, наприклад Yarn):
 ```
