@@ -9,7 +9,7 @@
 ## Створимо новий проект
 
 1. В рекомендуємо вам створіть каталог для нового проекту і `cd` в нього:
-```
+```json
 mkdir graphql-server-example
 cd graphql-server-example
 ```
