@@ -35,26 +35,26 @@ GraphQL надає повне і зрозумілий опис даних в т�
 &#160;&#160;&#160;&#160;Для обробки запитів GraphQL нам потрібна схема, яка визначає тип `Query`, і нам потрібен корінь API з функцією, яка називається “resolve” для кожної кінцевої точки API. Для API, який просто повертає “Hello world!”, Ми можемо помістити цей код у файл з іменем `server.js`:
 
 ```js
-var { graphql, buildSchema } = require('graphql');
- 
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
- 
-// The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
- 
-// Run the GraphQL query '{ hello }' and print out the response
-graphql(schema, '{ hello }', root).then((response) => {
-  console.log(response);
-});
+1 var { graphql, buildSchema } = require('graphql');
+2  
+3 // Construct a schema, using GraphQL schema language
+4 var schema = buildSchema(`
+5   type Query {
+6     hello: String
+7   }
+8 `);
+9  
+10 // The root provides a resolver function for each API endpoint
+11 var root = {
+12  hello: () => {
+13    return 'Hello world!';
+14  },
+15 };
+16 
+17 // Run the GraphQL query '{ hello }' and print out the response
+18 graphql(schema, '{ hello }', root).then((response) => {
+19  console.log(response);
+20 });
 ```
 
 Якщо ви запускаєте це за допомогою:
@@ -77,32 +77,32 @@ graphql(schema, '{ hello }', root).then((response) => {
 &#160;&#160;&#160;&#160;Давайте модифікуємо наш приклад «привіт світ» таким чином, щоб це був сервер API, а не сценарій, який запускає один запит. Ми можемо використовувати модуль 'express' для запуску веб-сервера, і замість того, щоб виконувати запит безпосередньо за допомогою функції `graphql`, ми можемо використовувати бібліотеку `express-graphql` для монтування сервера API GraphQL на кінцевій точці “/graphql” HTTP endpoint:
 
 ```js
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
- 
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
- 
-// The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
- 
-var app = express();
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-app.listen(4000);
-console.log('Running a GraphQL API server at http://localhost:4000/graphql');
+1  var express = require('express');
+2  var { graphqlHTTP } = require('express-graphql');
+3  var { buildSchema } = require('graphql');
+4 
+5  // Construct a schema, using GraphQL schema language
+6  var schema = buildSchema(`
+7    type Query {
+8      hello: String
+9    }
+10 `);
+11
+12 // The root provides a resolver function for each API endpoint
+13 var root = {
+14   hello: () => {
+15     return 'Hello world!';
+16   },
+17 };
+18 
+19 var app = express();
+20 app.use('/graphql', graphqlHTTP({
+21   schema: schema,
+22   rootValue: root,
+23   graphiql: true,
+24 }));
+25 app.listen(4000);
+26 console.log('Running a GraphQL API server at http://localhost:4000/graphql');
 ```
 
 Ви можете запустити цей сервер GraphQL за допомогою:
