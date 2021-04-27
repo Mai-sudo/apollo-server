@@ -35,33 +35,35 @@ GraphQL надає повне і зрозумілий опис даних в т�
 &#160;&#160;&#160;&#160;Для обробки запитів GraphQL нам потрібна схема, яка визначає тип `Query`, і нам потрібен корінь API з функцією, яка називається “resolve” для кожної кінцевої точки API. Для API, який просто повертає “Hello world!”, Ми можемо помістити цей код у файл з іменем `server.js`:
 
 ```js
->var { graphql, buildSchema } = require('graphql');
-> 
->// Construct a schema, using GraphQL schema language
->var schema = buildSchema(`
->  type Query {
->    hello: String
->  }
->`);
-> 
->// The root provides a resolver function for each API endpoint
->var root = {
->  hello: () => {
->    return 'Hello world!';
->  },
->};
-> 
->// Run the GraphQL query '{ hello }' and print out the response
->graphql(schema, '{ hello }', root).then((response) => {
->  console.log(response);
->});
+var { graphql, buildSchema } = require('graphql');
+ 
+// Construct a schema, using GraphQL schema language
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+ 
+// The root provides a resolver function for each API endpoint
+var root = {
+  hello: () => {
+    return 'Hello world!';
+  },
+};
+ 
+// Run the GraphQL query '{ hello }' and print out the response
+graphql(schema, '{ hello }', root).then((response) => {
+  console.log(response);
+});
 ```
 
 Якщо ви запускаєте це за допомогою:
-<img src="https://i2.paste.pics/CAX83.png" width="927" height="57" alt="Screenshot">
+>node server.js
 
 Ви повинні побачити роздруковану відповідь GraphQL:
-<img src="https://i2.paste.pics/CAX8F.png" width="927" height="57" alt="Screenshot">
+>```js
+>```{ data: { hello: 'Hello world!' } }
+>```
 
 Вітаємо! Ви щойно виконали запит GraphQL!
 
