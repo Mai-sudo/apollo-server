@@ -10,13 +10,13 @@
 
 1. В рекомендуємо вам створіть каталог для нового проекту і `cd` в нього:
 ```
-1. mkdir graphql-server-example
-2. cd graphql-server-example
+1 mkdir graphql-server-example
+2 cd graphql-server-example
 ```
 
 2. Ініціалізуйте новий проект Node.js за допомогою npm (або іншого вподобаного менеджера пакетів, наприклад Yarn):
 ```
-1. npm init --yes
+1 npm init --yes
 ```
 
 &#160;&#160;&#160;&#160;Тепер ваш каталог проекту містить файл `package.json`.
@@ -29,12 +29,14 @@
 - `graphql` - це бібліотека, яка використовується для побудови схеми GraphQL та виконання запитів до неї.
 
 &#160;&#160;&#160;&#160;Виконайте таку команду, щоб встановити обидві залежності та зберегти їх у каталозі >node_modules вашого проекту:
+
+&#160;&#160;&#160;&#160;Виконайте таку команду, щоб встановити обидві ці залежності та зберегти їх у каталозі `node_modules` вашого проекту:
 ```
-1. npm install apollo-server graphql
+1 npm install apollo-server graphql
 ```
 &#160;&#160;&#160;&#160;Також створіть порожній файл `index.js` у кореневому каталозі вашого проекту:
 ```
-1. touch index.js
+1 touch index.js
 ```
 
 &#160;&#160;&#160;&#160;Щоб все було простіше, `index.js` міститиме весь код для цього прикладу програми.
@@ -45,7 +47,29 @@
 
 Відкрийте `index.js` у бажаному редакторі та вставте в нього наступне:
 
-> <img src="https://i2.paste.pics/01b40fcda284b7dc9f226bb5571344a5.png" width="762" height="426" alt="Screenshot">
+```js
+1  const { ApolloServer, gql } = require('apollo-server');
+2  
+3  // A schema is a collection of type definitions (hence "typeDefs")
+4  // that together define the "shape" of queries that are executed against
+5  // your data.
+6  const typeDefs = gql`
+7    # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+8
+9    # This "Book" type defines the queryable fields for every book in our data source.
+10   type Book {
+11     title: String
+12     author: String
+13   }
+14
+15   # The "Query" type is special: it lists all of the available queries that
+16   # clients can execute, along with the return type for each. In this
+17   # case, the "books" query returns an array of zero or more Books (defined above).
+18   type Query {
+19     books: [Book]
+20   }
+21 `;
+```
 
 &#160;&#160;&#160;&#160;Цей фрагмент визначає просту, дійсну схему GraphQL. Клієнти зможуть виконати запит із назвою `books`, а наш сервер поверне масив із нуля або більше `books`.
 
@@ -54,39 +78,21 @@
 &#160;&#160;&#160;&#160;Тепер, коли ми визначили структуру наших даних, ми можемо визначити самі дані. Apollo Server може отримувати дані з будь-якого джерела, до якого ви підключаєтесь (включаючи базу даних, REST API, послугу зберігання статичних об’єктів або навіть інший сервер GraphQL). Для цілей цього підручника ми просто приведемо деякі приклади даних.
 
 Додайте наступне внизу `index.js`
-
 ```js
-const { ApolloServer, gql } = require('apollo-server');
-
-// A schema is a collection of type definitions (hence "typeDefs")
-// that together define the "shape" of queries that are executed against
-// your data.
-const typeDefs = gql`
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
-
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-`;
+1 const books = [
+2   {
+3     title: 'The Awakening',
+4     author: 'Kate Chopin',
+5   },
+6   {
+7     title: 'City of Glass',
+8     author: 'Paul Auster',
+9   },
+10 ];
 ```
 
 &#160;&#160;&#160;&#160;Цей фрагмент визначає простий набір даних, який клієнти можуть запитувати. Зверніть увагу, що два об’єкти в масиві відповідають структурі типу `Book`, яку ми визначили у нашій схемі.
 
-
-```js
-let a = Math.log(1)
-for(let i =0; i<2; i++){
-  
-```
 ## Визначимо розподільник
 
 &#160;&#160;&#160;&#160;Ми визначили наш набір даних, але сервер Apollo не знає, що він повинен використовувати цей набір даних під час виконання запиту. Щоб це виправити, ми створюємо **resolver** (вирішувач).
@@ -94,27 +100,42 @@ for(let i =0; i<2; i++){
 Розробники повідомляють Apollo Server, як отримати дані, пов’язані з певним типом. Оскільки наш масив `Book` є жорстко закодованим, відповідний вирішувач є простим. 
 
 Додайте внизу `index.js` наступне:
-
-> <img src="https://i2.paste.pics/037544c83715cb41e19d4e597152e4a8.png" width="669" height="192" alt="Screenshot">
-
+```js
+1 // Resolvers define the technique for fetching the types defined in the
+2 // schema. This resolver retrieves books from the "books" array above.
+3 const resolvers = {
+4   Query: {
+5     books: () => books,
+6   },
+7 };
+```
 ## Створимо екземпляр `ApolloServer`
 
 Ми визначили нашу схему, набір даних та вирішувач. Тепер нам просто потрібно надати цю інформацію серверу Apollo, коли ми її ініціалізуємо.
 
 Додайте внизу 'index.js' наступне:
 
-> <img src="https://i2.paste.pics/820efdd0adbfe89f775e8da0795260d0.png" width="606" height="177" alt="Screenshot">
+```js
+1 // The ApolloServer constructor requires two parameters: your schema
+2 // definition and your set of resolvers.
+3 const server = new ApolloServer({ typeDefs, resolvers });
+4
+5 // The `listen` method launches a web server.
+6 server.listen().then(({ url }) => {
+7   console.log(`🚀  Server ready at ${url}`);
+8 });
+```
 
 ## Запустіть сервер
 
 Ми готові запустити наш сервер! Запустіть наступне з кореневого каталогу вашого проекту:
-
->node index.js
-
+```
+node index.js
+```
 Ви повинні побачити такий результат:
-
->🚀 Server ready at `http://localhost:4000`
-
+```
+🚀 Server ready at `http://localhost:4000`
+```
 Готово!
 
 ## Виконайте свій перший запит (query)
