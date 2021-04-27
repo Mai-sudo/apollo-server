@@ -40,8 +40,8 @@ GraphQL надає повне і зрозумілий опис даних в т�
 3 // Construct a schema, using GraphQL schema language
 4 var schema = buildSchema(`
 5  type Query {
-6    hello: String
-7   }
+6   hello: String
+7  }
 8 `);
 9  
 10 // The root provides a resolver function for each API endpoint
