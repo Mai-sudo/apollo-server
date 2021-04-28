@@ -172,4 +172,4 @@ node index.js
 
 &#160;&#160;&#160;&#160;Однією з найважливіших концепцій GraphQL є те, що клієнти можуть вибрати запит лише для полів, які їм потрібні. Видаліть `author` із рядка запиту та виконайте його знову. Відповідь оновлюється, включаючи лише поле `title` для кожної `books`!
 
-Джерело: [https://www.apollographql.com/docs/apollo-server/getting-started/][Get started with Apollo Server]
+Джерело: [Get started with Apollo Server]: https://www.apollographql.com/docs/apollo-server/getting-started/
