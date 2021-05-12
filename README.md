@@ -1,4 +1,4 @@
-<img src="https://s.dou.ua/storage-files/2_dM06QJE.png" width="1252" height="370" alt="Screenshot">
+<img src="https://s.dou.ua/storage-files/2_dM06QJE.png" width="852" height="270" alt="Screenshot">
 
 # Доповідь з теми GraphQL (Apollo server)
 ## Виконав: Май Тієн
