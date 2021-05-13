@@ -2,13 +2,13 @@
 
 <img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://media.tenor.com/images/9dc21aea7a1f4a242438a44529a5874c/tenor.gif">
 
-<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://steamuserimages-a.akamaihd.net/ugc/316747095348823482/C0348CCE5B4938C671631A090F75E3624983FB3D/">
-
 ## Вступ
 
 &#160;&#160;&#160;&#160;**GraphQL** - це мова запитів для API, а так ж середовище для виконання цих запитів з нашими існуючими даними. 
 GraphQL надає повне і зрозумілий опис даних в твоєму API. Він дає клієнтам (браузерам) можливість вимагати від сервера тільки саме те, 
 що потрібно, і повертає тільки запитані дані, і нічого більше.
+
+<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://steamuserimages-a.akamaihd.net/ugc/316747095348823482/C0348CCE5B4938C671631A090F75E3624983FB3D/">
 
 ### Мета
 
