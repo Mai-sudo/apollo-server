@@ -8,7 +8,7 @@
 GraphQL надає повне і зрозумілий опис даних в твоєму API. Він дає клієнтам (браузерам) можливість вимагати від сервера тільки саме те, 
 що потрібно, і повертає тільки запитані дані, і нічого більше.
 
-<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://steamuserimages-a.akamaihd.net/ugc/316747095348823482/C0348CCE5B4938C671631A090F75E3624983FB3D/">
+<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://i.ibb.co/VjF6rtp/tenor-3.gif">
 
 ### Мета
 
