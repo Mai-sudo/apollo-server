@@ -1,5 +1,6 @@
 # GraphQL
 
+<img style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://media.tenor.com/images/9dc21aea7a1f4a242438a44529a5874c/tenor.gif">
 
 ## Вступ
 
